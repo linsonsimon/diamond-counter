@@ -186,7 +186,6 @@ library LibDiamond {
   // Setter function for the shared counter state variable
   function setCounter(uint256 _counter) internal {
     DiamondStorage storage ds = diamondStorage();
-    uint256 value = ds.counter;
-    ds.counter = value;
+    ds.counter = _counter;
   }
 }

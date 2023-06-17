@@ -67,6 +67,14 @@ describe("Create a Simple Diamond Contract", async function () {
     if (!receipt.status) {
       throw Error(`Diamond upgrade failed: ${tx.hash}`);
     }
-    console.log(diamond);
+    // console.log(diamond);
+  });
+
+  it("accessing incrementfacet functions", async () => {
+    const incrementFacet = await ethers.getContractAt(
+      "IncrementFacet",
+      diamond.address
+    );
+    incrementFacet.incrementCounter();
   });
 });

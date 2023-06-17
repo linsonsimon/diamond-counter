@@ -180,7 +180,9 @@ library LibDiamond {
 
   //getcounder value
   function getCounter() internal view returns (uint256) {
-    return diamondStorage().counter;
+    DiamondStorage storage ds = diamondStorage();
+    uint256 value = ds.counter;
+    return value;
   }
 
   // Setter function for the shared counter state variable

@@ -75,6 +75,10 @@ describe("Create a Simple Diamond Contract", async function () {
       "IncrementFacet",
       diamond.address
     );
-    incrementFacet.incrementCounter();
+    const tx = await incrementFacet.incrementCounter();
+    tx.wait();
+    const demo = await incrementFacet.display();
+    demo.wait();
+    console.log(demo);
   });
 });

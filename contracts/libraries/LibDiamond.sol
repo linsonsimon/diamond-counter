@@ -167,7 +167,6 @@ library LibDiamond {
     address[] facetAddresses;
     // owner of the diamond contract
     address contractOwner;
-    uint256 counter;
   }
 
   // access core storage via:
@@ -176,18 +175,5 @@ library LibDiamond {
     assembly {
       ds.slot := position
     }
-  }
-
-  //getcounder value
-  function getCounter() internal view returns (uint256) {
-    DiamondStorage storage ds = diamondStorage();
-    uint256 value = ds.counter;
-    return value;
-  }
-
-  // Setter function for the shared counter state variable
-  function setCounter(uint256 _counter) internal {
-    DiamondStorage storage ds = diamondStorage();
-    ds.counter = _counter;
   }
 }

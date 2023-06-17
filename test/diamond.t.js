@@ -32,6 +32,10 @@ describe("Create a Simple Diamond Contract", async function () {
   });
 
   it("add incrementfacet to diamond", async () => {
+    // const IncrementLib = await ethers.getContractFactory("LibIncrement");
+    // const incrementlib = await IncrementLib.deploy();
+    // await incrementlib.deployed();
+
     const IncrementFacet = await ethers.getContractFactory("IncrementFacet");
     const incrementFacet = await IncrementFacet.deploy();
     await incrementFacet.deployed();
@@ -50,7 +54,7 @@ describe("Create a Simple Diamond Contract", async function () {
     }
   });
 
-  it("add incrementfacet to diamond", async () => {
+  it("add decrementfacet to diamond", async () => {
     const DecrementFacet = await ethers.getContractFactory("DecrementFacet");
     const decrementFacet = await DecrementFacet.deploy();
     await decrementFacet.deployed();

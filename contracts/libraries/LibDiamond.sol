@@ -167,6 +167,7 @@ library LibDiamond {
     address[] facetAddresses;
     // owner of the diamond contract
     address contractOwner;
+    int256 counter;
   }
 
   // access core storage via:

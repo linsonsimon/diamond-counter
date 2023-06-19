@@ -1,11 +1,11 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-import { LibIncrement } from "../libraries/LibIncrement.sol";
+import { LibDiamond } from "../libraries/LibDiamond.sol";
 
 contract DecrementFacet {
-  function decrementCounter() public {
-    uint256 currentCounter = LibIncrement.getCounter() - 1;
-    LibIncrement.setCounter(currentCounter);
+  function DecrementCounter() public {
+    LibDiamond.DiamondStorage storage ds = LibDiamond.diamondStorage();
+    ds.counter -= 1;
   }
 }

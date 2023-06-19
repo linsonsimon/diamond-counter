@@ -1,4 +1,4 @@
-const { expect } = require("chai");
+const { expect, assert } = require("chai");
 
 // HELPER: get function selectors from a contract
 function getSelectors(contract) {
@@ -79,10 +79,19 @@ describe("Create a Simple Diamond Contract", async function () {
       "IncrementFacet",
       diamond.address
     );
-    const tx = await incrementFacet.incrementCounter();
-    tx.wait();
-    const demo = await incrementFacet.display();
-    demo.wait();
-    console.log(demo);
+    await incrementFacet.IncrementCounter();
+    const increment = await incrementFacet.Display();
+
+    // console.log(increment);
+    assert.equal(increment, 1);
+
+    const decrementFacet = await ethers.getContractAt(
+      "DecrementFacet",
+      diamond.address
+    );
+    await decrementFacet.DecrementCounter();
+    const decrement = await incrementFacet.Display();
+    assert.equal(decrement, 0);
+    // console.log(decrement);
   });
 });
